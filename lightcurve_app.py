@@ -7,6 +7,8 @@ import pandas as pd
 import os
 
 import matplotlib.pyplot as plt
+import matplotlib
+matplotlib.use("TkAgg")
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 from matplotlib.widgets import RectangleSelector
 
@@ -83,6 +85,7 @@ class LightCurveApp:
         self.canvas = FigureCanvasTkAgg(self.fig, master=self.root)
         self.canvas_widget = self.canvas.get_tk_widget()
         self.canvas_widget.pack(fill=tk.BOTH, expand=True)
+        self.canvas.draw()
 
     # ======================================================
     # LOAD VIDEO
