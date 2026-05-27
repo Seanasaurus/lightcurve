@@ -33,29 +33,11 @@ Built using:
 # Installation
 
 ## macOS
-
-Clone the repository:
-
 ```bash
 git clone https://github.com/Seanasaurus/lightcurve.git
 cd lightcurve
-```
-
-Make the setup script executable:
-
-```bash
 chmod +x setup.sh
-```
-
-Run setup:
-
-```bash
 ./setup.sh
-```
-
-Run the application:
-
-```bash
 make run
 ```
 
@@ -67,23 +49,8 @@ Create a virtual environment:
 
 ```bash
 python3 -m venv .venv
-```
-
-Activate it:
-
-```bash
 source .venv/bin/activate
-```
-
-Install dependencies:
-
-```bash
 pip install -r requirements.txt
-```
-
-Run the app:
-
-```bash
 python lightcurve_app.py
 ```
 
