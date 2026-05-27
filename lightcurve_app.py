@@ -4,6 +4,7 @@ from tkinter import filedialog, messagebox
 import cv2
 import numpy as np
 import pandas as pd
+import os
 
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
@@ -266,13 +267,23 @@ class LightCurveApp:
                 "Generate a light curve first")
             return
 
+        # Default filename based on loaded video
+        default_name = os.path.splitext(
+            os.path.basename(self.video_path))[0]
+
+        # Get original video filename without extension
+        default_name = os.path.splitext(
+            os.path.basename(self.video_path)
+        )[0]
+
         filepath = filedialog.asksaveasfilename(
+            initialfile=f"{default_name}_lightcurve.csv",
             defaultextension='.csv',
-            filetypes=[('CSV Files', '*.csv')])
+            filetypes=[('CSV Files', '*.csv')]
+        )
 
         if not filepath:
             return
-
 
         df = pd.DataFrame({
             'Frame': self.time_stamps,
